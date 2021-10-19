@@ -137,7 +137,7 @@ else:
 de = 0.0
 ie = 0.0
 
-return np.clip((self.K_P*dot)*(self.K_I*ie)+(self.K_D*de), -1.0,1.0)
+return np.clip((self.K_P*dot)+(self.K_I*ie)+(self.K_D*de), -1.0,1.0)
 
 
 
@@ -151,7 +151,7 @@ map = world.get_map()
 
 blueprintLibrary = world.get_blueprint_library()
 vehicle_bp = blueprintLibrary.filter('cybertruck')[0]
-spawnpoint = carla.Transform(carla.Location(x=-175,y=-6.0,z=115),carla.Rotation(pitch=0, yaw=180, roll=0))
+spawnpoint = carla.Transform(carla.Location(x=-75.4,y=-1.0,z=15),carla.Rotation(pitch=0, yaw=180, roll=0))
 vehicle = world.spawn_actor(vehicle_bp,spawnpoint)
 actor_list.append(vehicle)
 
